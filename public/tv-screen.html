@@ -60,7 +60,7 @@
 
         }
 
-       
+
 
         .real-time {
             text-align: right;
@@ -213,7 +213,7 @@
                     </ul>
                 </div>
             </div>
-            <form class="col-xs-5 col-xs-offset-1 form-container" >
+            <form class="col-xs-5 col-xs-offset-1 form-container" onsubmit="submitForm()">
                 <div class="form-title">
                     For more information
                 </div>
@@ -244,6 +244,11 @@
         count = Math.floor(seed + ( (_.now() - startTime) / (1000 * 60 ) * ops) + _.random(100000, 800000))
         $(".real-time-count").text(count.toLocaleString('en-US', { minimumFractionDigits: 0 }));
     }, 5000);
+
+    function submitForm() {
+        $.post("/", {email: $( "input:first" ).val()})
+        alert()
+    }
 
 
 </script>
