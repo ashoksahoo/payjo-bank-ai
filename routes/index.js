@@ -15,8 +15,7 @@ router.get('/', function (req, res, next) {
 
 
     function sendMail(callback) {
-        let body = template,
-            subject = "Your Subscription for Payjo Mailer";
+        let body = template;
 
         const EMAIL_FROM = process.env.EMAIL_FROM || 'PayJo Support <support@payjo.in>';
         let EMAIL_TO = req.query.email ? [req.query.email] : ["Ashok <ashok@payjo.co>"];
