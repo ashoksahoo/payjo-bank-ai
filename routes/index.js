@@ -35,7 +35,7 @@ router.get('/', function (req, res, next) {
             html: body,
             attachments: {   // stream as an attachment
                 filename: "Payjo - Leading AI Banking Platform.pdf",
-                content: fs.createReadStream(path.join("./public", "Payjo - Leading AI Banking Platform.pdf"))
+                content: fs.createReadStream(path.join("./public", "Payjo Company Profile October 2017.pdf"))
             }
         }, callback);
     }
