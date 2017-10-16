@@ -13,14 +13,13 @@ router.get('/', function (req, res, next) {
 })
 router.post('/', function (req, res, next) {
 
-    console.warn(req.params, req.body, req.query)
     var path = require('path');
 
     function sendMail(callback) {
         let body = template;
 
         const EMAIL_FROM = process.env.EMAIL_FROM || 'Srinivas Njay <srinivas@payjo.co>';
-        let EMAIL_TO = req.query.email ? [req.body.email] : ["Ashok <ashok@payjo.co>"];
+        let EMAIL_TO = req.body.email ? [req.body.email] : ["Ashok <ashok@payjo.co>"];
 
         aws.config.region = 'us-east-1';
         var transporter = nodemailer.createTransport({
@@ -33,6 +32,7 @@ router.post('/', function (req, res, next) {
         transporter.sendMail({
             from: EMAIL_FROM,
             to: EMAIL_TO,
+            cc: ["Srinivas <srinivas+bankai@payjo.co>", "Bruce <bruce+bankai@payjo.co>"],
             subject: "Follow Up: Bank AI - Introducing Payjo",
             html: body,
             attachments: {   // stream as an attachment
@@ -41,7 +41,7 @@ router.post('/', function (req, res, next) {
             }
         }, callback);
     }
-    if(req.query.email){
+    if(req.body.email){
         sendMail(function (err, done) {
             if (err) {
                 console.error(err)
@@ -50,6 +50,7 @@ router.post('/', function (req, res, next) {
 
         });
     }
+    res.send(200)
 })
 
 module.exports = router;
