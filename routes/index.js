@@ -11,8 +11,8 @@ const template = "<!DOCTYPE html><html xmlns=http://www.w3.org/1999/xhtml><head>
 router.get('/', function (req, res, next) {
 
     console.warn(req.params, req.body, req.query)
-    res.render("index");
-
+    var path = require('path');
+    res.sendFile(path.resolve('public/tv-screen.html'));
 
     function sendMail(callback) {
         let body = template;

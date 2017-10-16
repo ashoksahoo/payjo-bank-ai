@@ -1,0 +1,250 @@
+
+<html>
+<head>
+    <title>Payjo Bank</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link href="grid.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <!--<script src="//localhost:2222/widget-loader.js"></script>-->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('//res.cloudinary.com/didjjow94/image/upload/v1508160584/Rectangle_3_dars3p.png') no-repeat;
+            background-size: cover;
+        }
+        .container {
+            position: absolute;
+            left: 0;
+            font-family: helvetica, verdana;
+            text-align: left;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        img.main-logo {
+            margin: auto;
+            display: block;
+            margin-bottom: 30px;
+        }
+
+        h2 > span {
+            margin-top: 25px;
+            margin-left: 10px;
+        }
+        h2.heading>div{
+            clear: both;
+        }
+        h2.heading {
+            text-align: center;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            margin: 0;
+            width: 100%;
+            height: 5px;
+            background: #6630d0;
+        }
+
+        .logo img{
+            height: 58px;
+        }
+
+
+        .row {
+            height: auto;
+        }
+        .logo{
+
+        }
+
+       
+
+        .real-time {
+            text-align: right;
+        }
+
+        .real-time-text {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .real-time-count {
+            font-size: 84px;
+            font-weight: 500;
+            color: #6630d0;
+            margin-top: 10px;
+        }
+
+        .body-page {
+            margin-top: 50px;
+        }
+
+        .sub-header {
+            position: absolute;
+            top: 0%;
+            left: 0;
+            width: 100%;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            background: #f5f5f5;
+        }
+
+        .body-page {
+            margin-top: 400px;
+            color: white;
+        }
+
+        .title {
+            font-size: 40px;
+
+        }
+
+        .list {
+            list-style-type: none;
+            font-size: 36px;
+            margin-top: 30px;
+            font-weight: 100;
+            margin-left: 0px;
+            padding-left: 0px;
+        }
+
+        .list li {
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 1px solid #f2f2f2;
+            padding: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 0px 20px 3px #661DB6;
+        }
+
+        .form-title {
+            font-size: 30px;
+            font-weight: 400;
+            color: #000;
+            margin-bottom: 10px;
+        }
+        .success-msg{
+            display: none;
+            color: lawngreen;
+        }
+
+
+        input.form-control, textarea.form-control {
+            margin-top: 30px;
+            height: 40px;
+            display: block;
+            outline: none;
+            border: 1px solid #ccc;
+            padding: 5px;
+            padding-left: 10px;
+            width: 100%;
+            box-shadow: 0px;
+            font-size: 14px;
+            border-radius: 3px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            background: #661DB6;
+            color: white;
+            border: 0px solid #ccc;
+            outline: none;
+            box-shadow: none;
+            cursor: pointer;
+            margin-top: 30px;
+            margin-bottom: 50px;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+
+        .bottom-background {
+            position: absolute;
+            bottom: 0px;
+            left: -3%;
+            width: 105%;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="header"></div>
+<div class="sub-header">
+   <div class="col-xs-10 col-xs-offset-1">
+        <div class="row">
+            <div class="col-xs-6 logo">
+                <img class="img img-responsive" src="//res.cloudinary.com/didjjow94/image/upload/v1508136938/payjo-logo_sojiul.svg">
+            </div>
+            <div class="col-xs-6">
+                <div class="real-time">
+                    <div class="real-time-text"> REAL TIME CONVERSATIONS </div>
+                    <div class="real-time-count">117,625,134</div>
+                </div>
+            </div>
+        </div>
+   </div>
+</div>
+<div class="row body-page">
+    <div class="col-xs-10 col-xs-offset-1">
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="title">
+                    Why Us?
+                </div>
+                <div class="sub-text">
+                    <ul class="list">
+                        <li>Autonomous Assistance</li>
+                        <li>Intelligent Banking</li>
+                        <li>Smart Conversions</li>
+                        <li>Smart Compliance</li>
+                    </ul>
+                </div>
+            </div>
+            <form class="col-xs-5 col-xs-offset-1 form-container" >
+                <div class="form-title">
+                    For more information
+                </div>
+                <div class="email-input">
+                    <input type="email" class="form-control" placeholder="Enter Email" required name="email"/>
+                </div>
+                <div class="success-msg">
+                    Email Sent Successfully
+                </div>
+
+                <input class="btn" type="submit"/>
+                <img class="bottom-background" src="//res.cloudinary.com/didjjow94/image/upload/v1508159907/bottom_kwbsbf.svg"></form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    var seed = 117625134;
+    var startTime = 1508161967802;
+    var delta = (_.now() - startTime) / (1000 * 60);
+
+    var ops = 1000;
+    seed = seed + delta * ops;
+    var count = Math.floor(seed + ( (_.now() - startTime) / (1000 * 60 ) * ops) + _.random(100000, 800000))
+    $(".real-time-count").text(count.toLocaleString('en-US', { minimumFractionDigits: 0 }));
+    setInterval(function () {
+        count = Math.floor(seed + ( (_.now() - startTime) / (1000 * 60 ) * ops) + _.random(100000, 800000))
+        $(".real-time-count").text(count.toLocaleString('en-US', { minimumFractionDigits: 0 }));
+    }, 5000);
+
+
+</script>
+</html>
