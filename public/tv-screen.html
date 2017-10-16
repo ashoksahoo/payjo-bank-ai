@@ -1,9 +1,8 @@
-
 <html>
 <head>
     <title>Payjo Bank</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link href="grid.css" rel="stylesheet" />
+    <link href="grid.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <!--<script src="//localhost:2222/widget-loader.js"></script>-->
     <style>
@@ -12,6 +11,7 @@
             background: url('//res.cloudinary.com/didjjow94/image/upload/v1508160584/Rectangle_3_dars3p.png') no-repeat;
             background-size: cover;
         }
+
         .container {
             position: absolute;
             left: 0;
@@ -31,9 +31,11 @@
             margin-top: 25px;
             margin-left: 10px;
         }
-        h2.heading>div{
+
+        h2.heading > div {
             clear: both;
         }
+
         h2.heading {
             text-align: center;
         }
@@ -48,19 +50,17 @@
             background: #6630d0;
         }
 
-        .logo img{
+        .logo img {
             height: 58px;
         }
-
 
         .row {
             height: auto;
         }
-        .logo{
+
+        .logo {
 
         }
-
-
 
         .real-time {
             text-align: right;
@@ -130,11 +130,12 @@
             color: #000;
             margin-bottom: 10px;
         }
-        .success-msg{
-            display: none;
-            color: lawngreen;
-        }
 
+        .success-msg {
+            display: none;
+            padding-left: 5px;
+            color: #56B947;
+        }
 
         input.form-control, textarea.form-control {
             margin-top: 30px;
@@ -183,19 +184,20 @@
 
 <div class="header"></div>
 <div class="sub-header">
-   <div class="col-xs-10 col-xs-offset-1">
+    <div class="col-xs-10 col-xs-offset-1">
         <div class="row">
             <div class="col-xs-6 logo">
-                <img class="img img-responsive" src="//res.cloudinary.com/didjjow94/image/upload/v1508136938/payjo-logo_sojiul.svg">
+                <img class="img img-responsive"
+                     src="//res.cloudinary.com/didjjow94/image/upload/v1508136938/payjo-logo_sojiul.svg">
             </div>
             <div class="col-xs-6">
                 <div class="real-time">
-                    <div class="real-time-text"> REAL TIME CONVERSATIONS </div>
+                    <div class="real-time-text"> REAL TIME CONVERSATIONS</div>
                     <div class="real-time-count">117,625,134</div>
                 </div>
             </div>
         </div>
-   </div>
+    </div>
 </div>
 <div class="row body-page">
     <div class="col-xs-10 col-xs-offset-1">
@@ -213,22 +215,22 @@
                     </ul>
                 </div>
             </div>
-            <form class="col-xs-5 col-xs-offset-1 form-container" onsubmit="submitForm()">
+            <form class="col-xs-5 col-xs-offset-1 form-container">
                 <div class="form-title">
                     For more information
                 </div>
                 <div class="email-input">
                     <input type="email" class="form-control" placeholder="Enter Email" required name="email"/>
                 </div>
-                <div class="success-msg">
-                    Email Sent Successfully
-                </div>
-
                 <input class="btn" type="submit"/>
-                <img class="bottom-background" src="//res.cloudinary.com/didjjow94/image/upload/v1508159907/bottom_kwbsbf.svg"></form>
-            </div>
+                <div class="success-msg">
+                    &#10004; Email Sent Successfully
+                </div>
+                <img class="bottom-background"
+                     src="//res.cloudinary.com/didjjow94/image/upload/v1508159907/bottom_kwbsbf.svg"></form>
         </div>
     </div>
+</div>
 </div>
 </body>
 <script>
@@ -239,15 +241,23 @@
     var ops = 1000;
     seed = seed + delta * ops;
     var count = Math.floor(seed + ( (_.now() - startTime) / (1000 * 60 ) * ops) + _.random(100000, 800000))
-    $(".real-time-count").text(count.toLocaleString('en-US', { minimumFractionDigits: 0 }));
+    $(".real-time-count").text(count.toLocaleString('en-US', {minimumFractionDigits: 0}));
     setInterval(function () {
         count = Math.floor(seed + ( (_.now() - startTime) / (1000 * 60 ) * ops) + _.random(100000, 800000))
-        $(".real-time-count").text(count.toLocaleString('en-US', { minimumFractionDigits: 0 }));
-    }, 5000);
+        $(".real-time-count").text(count.toLocaleString('en-US', {minimumFractionDigits: 0}));
+    }, 3000);
 
-    function submitForm() {
-        $.post("/", {email: $( "input:first" ).val()})
-    }
+    $('form').submit(function () {
+        $.post("/", {email: $("input:first").val()});
+        $("form").each(function(){
+            this.reset();
+        });
+        $('.success-msg').css('display', 'inline-block');
+        setTimeout(function () {
+            $('.success-msg').css('display', 'none');
+        }, 3000)
+        return false;
+    })
 
 
 </script>
