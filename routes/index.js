@@ -33,7 +33,7 @@ router.post('/', function (req, res, next) {
         transporter.sendMail({
             from: EMAIL_FROM,
             to: EMAIL_TO,
-            subject: "It was pleasure meeting you at Bank AI event, Boston!",
+            subject: "Follow Up: Bank AI - Introducing Payjo",
             html: body,
             attachments: {   // stream as an attachment
                 filename: "Payjo - Leading AI Banking Platform.pdf",
