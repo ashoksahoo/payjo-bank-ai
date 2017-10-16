@@ -1,0 +1,28 @@
+extends layout
+
+block content
+    .top.col-sm-12
+        .logo.col-sm-6.img-responsive
+            img(src="http://res.cloudinary.com/didjjow94/image/upload/v1508136938/payjo-logo_sojiul.svg", height="40px")
+        .realtime.col-sm-6
+            | Real Time Conversations
+            .count 5000
+
+    .bottom.col-sm-12
+        .text.col-sm-6
+            h3 Why us?
+            ul
+                li Lorem Ipsum
+                li Lorem Ipsum
+                li Lorem Ipsum
+                li Lorem Ipsum
+        .card.col-sm-6
+            p For more information
+            form
+                .form-group
+                    label(for='email')
+                    input#email.form-control(type='email', placeholder='Enter email', name='email')
+                button.btn.btn-default(type='submit') Submit
+
+
+
