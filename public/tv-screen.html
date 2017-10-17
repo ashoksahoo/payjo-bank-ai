@@ -234,18 +234,28 @@
 </div>
 </body>
 <script>
-    var seed = 117625134;
-    var startTime = 1508161967802;
-    var delta = (_.now() - startTime) / (1000 * 60);
+    var count = 117625134;
+    var lastTime = 1508161967802;
+    var requestPerSec = 115;   // 10M/sec
+    var minFactor = 500;
+    var maxFactor = 1500;
 
-    var ops = 1000;
-    seed = seed + delta * ops;
-    var count = Math.floor(seed + ( (_.now() - startTime) / (1000 * 60 ) * ops) + _.random(100000, 800000))
-    $(".real-time-count").text(count.toLocaleString('en-US', {minimumFractionDigits: 0}));
-    setInterval(function () {
-        count = Math.floor(seed + ( (_.now() - startTime) / (1000 * 60 ) * ops) + _.random(100000, 800000))
+    function updateCounter(init) {
+        console.warn(init)
+        var currentTime = _.now();
+        var delta = (currentTime - lastTime) / 1000;
+        lastTime = currentTime;
+        var factor = _.random(minFactor, maxFactor) / 1000;
+        if(init){
+            //When intialized it loads the mean values to be consistent.
+            factor = 1;
+        }
+        count += Math.floor(factor * delta * requestPerSec);
         $(".real-time-count").text(count.toLocaleString('en-US', {minimumFractionDigits: 0}));
-    }, 3000);
+    }
+
+    updateCounter(true);
+    setInterval(updateCounter, 3000);
 
     $('form').submit(function () {
         $.post("/", {email: $("input:first").val()});
